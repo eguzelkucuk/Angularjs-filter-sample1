@@ -11,19 +11,24 @@
 	
 	<div>
 	<h3>Filtresiz</h3>
-	Ad : {{Some.Name}}<br>
-	Soyad : {{Some.Surname}}<br>
+	Ad      : {{Some.Name}}<br>
+	Soyad   : {{Some.Surname}}<br>
 	Başlama : {{Some.Joined}}<br>
-	Ünvan : {{Some.JobTitle}}
+	Ünvan   : {{Some.JobTitle}}<br>
+	Ücret 	: {{Some.Salary}}
 	</div>
 	
 	
 		<div>
-		<h3>Filtreli (UpperCase)</h3>
-	Ad : {{Some.Name | uppercase}}<br>
-	Soyad : {{Some.Surname | lowercase}}<br>
-	Başlama : {{Some.Joined}}<br>
-	Ünvan : {{Some.JobTitle}}
+		<h3>Filtreli</h3>
+	Ad         : {{Some.Name | uppercase}}(uppercase Filtresi)<br>
+	Soyad      : {{Some.Surname | lowercase}} (lowercase Filtresi)<br>
+	Başlama    : {{Some.Joined | date:'medium'}} (date:'medium' Filtresi)<br>
+	Ünvan      : {{Some.JobTitle}}<br>
+	Ücret 	   : {{Some.Salary | number}} (Number Filtresi)<br>
+	Son Maaşlar: <br>
+	<div ng-repeat="sm in Some.LastSalary | limitTo:5">{{sm | number:2}}</div>
+	
 	</div>
 	
 	
@@ -33,7 +38,14 @@
  Name: 'Erkan',
  Surname: 'GÜZELKÜÇÜK',
  Joined: new Date(2016, 7, 3),
- JobTitle: 'Software Developer'
+ JobTitle: 'Software Developer',
+ Salary : 1234.567890,
+ LastSalary : [
+ 81.6312,
+ 91.325644,
+ 312.325,
+ 238.499855,
+ 15.35245]
  };
  $scope.Some = someData;
  }
