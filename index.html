@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="UTF-8">
+        <title>Angular MVC Örnek </title>
+        <script src="js/angular.min.js"></script>
+		  <script src="js/angular-locale_tr-tr.js"></script>
+		
+    </head>
+    <body ng-controller="MyController">
+	
+	<div>
+	<h3>Filtresiz</h3>
+	Ad : {{Some.Name}}<br>
+	Soyad : {{Some.Surname}}<br>
+	Başlama : {{Some.Joined}}<br>
+	Ünvan : {{Some.JobTitle}}
+	</div>
+	
+	
+		<div>
+		<h3>Filtreli (UpperCase)</h3>
+	Ad : {{Some.Name | uppercase}}<br>
+	Soyad : {{Some.Surname | lowercase}}<br>
+	Başlama : {{Some.Joined}}<br>
+	Ünvan : {{Some.JobTitle}}
+	</div>
+	
+	
+	<script>
+	function MyController($scope) {
+ var someData = {
+ Name: 'Erkan',
+ Surname: 'GÜZELKÜÇÜK',
+ Joined: new Date(2016, 7, 3),
+ JobTitle: 'Software Developer'
+ };
+ $scope.Some = someData;
+ }
+	</script>
+	
+	</body>
+	</html>
